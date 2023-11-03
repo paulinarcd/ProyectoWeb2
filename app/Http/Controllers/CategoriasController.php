@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Categoria;
-use\App\Models\User;
 
 class CategoriasController extends Controller
 {
@@ -14,8 +13,7 @@ class CategoriasController extends Controller
     public function index()
     {
         $categorias = Categoria::all();
-        $users = User::all();
-        return view("", compact('categorias', 'users'));
+        return view("categorias.crear_categorias", compact('categorias'));
     }
 
     /**
@@ -32,9 +30,9 @@ class CategoriasController extends Controller
     public function store(Request $request)
     {
         $categoria = new Categoria();
-        $categoria->nombre=$request->categ;
-        $categoria>save();
-        return redirect()->route('');
+        $categoria->nombre=$request->NombreCategoria;
+        $categoria->save();
+        return redirect()->route('categorias.index');
     }
 
     /**
@@ -50,7 +48,8 @@ class CategoriasController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $categoria = Producto::find($id);
+        return view("books.editar_libros", compact('categoria'));
     }
 
     /**
@@ -58,7 +57,10 @@ class CategoriasController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $categoria = Producto::find($id);        
+        $categoria->nombre = $request->nombreCategoria;
+        $categoria->save();
+        return redirect()->route('categorias.index');
     }
 
     /**
@@ -66,6 +68,8 @@ class CategoriasController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $categoria = Producto::find($id);
+        $categoria->delete();
+        return redirect()->route('categorias.index');
     }
 }

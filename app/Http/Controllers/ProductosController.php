@@ -17,7 +17,7 @@ class ProductosController extends Controller
         $productos = Producto::all();
         $categorias = Categoria::all();
         $users = User::all();
-        return view("books.gestion_libros", compact('productos', 'categorias', 'users'));
+        return view("", compact('productos', 'categorias', 'users'));
     }
 
     /**
@@ -41,7 +41,7 @@ class ProductosController extends Controller
         $producto->id_categoria = $request->idCategoria;
         $producto->id_user = $request->idUser;
         $producto->save();
-        return redirect()->route('books.index');
+        return redirect()->route('');
     }
 
     /**

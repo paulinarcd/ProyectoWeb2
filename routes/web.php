@@ -1,6 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CamisaPersController;
+use App\Http\Controllers\CategoriasController;
+use App\Http\Controllers\ColorsController;
+use App\Http\Controllers\ComprasController;
+use App\Http\Controllers\Historial_comprasController;
+use App\Http\Controllers\Producto_colortallasController;
+use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\TallasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +20,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::resource('/camisa', CamisaPersController::class );
+Route::resource('/cat', CategoriasController::class );
+
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('productos/visual');
 });

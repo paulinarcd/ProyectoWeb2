@@ -44,7 +44,9 @@ Route::put('/colores/{id}',[ColorsController::class, 'update'])->name('colores.u
 Route::get('/colores/{id}',[ColorsController::class, 'edit'])->name('colores.edit');
 
 
+ Route::get('/', function () {
+     return view('productos/visual');
+ });
 
-Route::get('/', function () {
-    return view('productos/visual');
-});
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

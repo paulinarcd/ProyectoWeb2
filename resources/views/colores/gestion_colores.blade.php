@@ -16,7 +16,7 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           
           <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-            <img src="img/bolsa-de-la-compra.png" alt="" height ="40px" width="40px">
+            <img src="images/bolsa-de-la-compra.png" alt="" height ="40px" width="40px">
             
           </a>
   
@@ -36,7 +36,7 @@
               <a  class="link" href="registro.html">Registrarse</a>
             </button>
             <button type="button" class="btn btn-light"> 
-              <img src="img/carrito-de-compras.png" alt="" height ="20px" width="20px">
+              <img src="images/carrito-de-compras.png" alt="" height ="20px" width="20px">
             </button>
           </div>
         </div>
@@ -68,7 +68,7 @@
             <div class="col-8">
                 <div class="mb-3">
                 <table class="table table-sm">
-                  <h3>Tabla Tallas</h3>
+                  <h3>Tabla Colores</h3>
                   <thead class="thead-dark">
                     <tr>
                       <th>Nombre</th>

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string("nombre")->comment("Nombre del producto");
             $table->integer("cantidad")->comment("Nombre de la cantidad");
             $table->integer("precio")->comment("Precio del producto");
+            $table->string("genero")->comment("Genero de prenda");
             $table->string("imagen")->comment("Imagen del producto");
             $table->unsignedBigInteger("id_categoria")->comment("ID de la categoria");
             $table->foreign("id_categoria")->references("id")->on("categorias");

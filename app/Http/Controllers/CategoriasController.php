@@ -13,7 +13,7 @@ class CategoriasController extends Controller
     public function index()
     {
         $categorias = Categoria::all();
-        return view("categorias.crear_categorias", compact('categorias'));
+        return view("categorias.gestion_categorias", compact('categorias'));
     }
 
     /**
@@ -48,8 +48,8 @@ class CategoriasController extends Controller
      */
     public function edit(string $id)
     {
-        $categoria = Producto::find($id);
-        return view("books.editar_libros", compact('categoria'));
+        $categoria = Categoria::find($id);
+        return view("categorias.editar_categorias", compact('categoria'));
     }
 
     /**
@@ -57,7 +57,7 @@ class CategoriasController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $categoria = Producto::find($id);        
+        $categoria = Categoria::find($id);        
         $categoria->nombre = $request->nombreCategoria;
         $categoria->save();
         return redirect()->route('categorias.index');
@@ -68,7 +68,7 @@ class CategoriasController extends Controller
      */
     public function destroy(string $id)
     {
-        $categoria = Producto::find($id);
+        $categoria = Categoria::find($id);
         $categoria->delete();
         return redirect()->route('categorias.index');
     }

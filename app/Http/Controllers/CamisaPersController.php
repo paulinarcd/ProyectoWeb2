@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Talla;
+use App\Models\Colors;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 
@@ -19,7 +22,11 @@ class CamisapersController extends Controller
      */
     public function create()
     {
-        //
+        $camiapers= CamisaPers::all();
+        $tallas = Talla::all();
+        $colors = Colors::all();
+        $users = User::all();
+        return view("", compact("camisapers, tallas, colors"));
     }
 
     /**
@@ -27,7 +34,14 @@ class CamisapersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $camiapers = new CamisaPers();
+        $camiapers->precio=$request->precio;
+        $camiapers->imagen=$request->precio;
+        $camiapers->id_talla=$request->precio;
+        $camiapers->id_color=$request->precio;
+        $camiapers->save();
+        return redirect()->route("");
+
     }
 
     /**
@@ -43,7 +57,8 @@ class CamisapersController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $camisapers = CamisaPers::find($id);
+        return view("",compact("camisapers"));
     }
 
     /**
@@ -51,7 +66,14 @@ class CamisapersController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $camisapers = CamisaPers::find($id);
+        $camiapers->precio=$request->precio;
+        $camiapers->imagen=$request->precio;
+        $camiapers->id_talla=$request->precio;
+        $camiapers->id_color=$request->precio;
+        $camiapers->save();
+        return redirect()->route("");
+
     }
 
     /**
@@ -59,6 +81,8 @@ class CamisapersController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $camisapers = CamisaPers::find($id);
+        $camiapers->delete();
+        return redirect()->route("");
     }
 }

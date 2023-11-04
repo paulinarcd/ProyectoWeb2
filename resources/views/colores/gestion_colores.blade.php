@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JOPS STORE</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="stylePersonalizar.css">
+    <link rel="stylesheet" href="\css\style.css">
   </head>
   
   <body>
@@ -43,16 +43,19 @@
       </div>
     </header>
 
+
+
     <div class="container text-center">
       <div class="row">
         <div class="col-4">
             <div class="mb-3">
-              <h3>Crear Categorias</h3>
-                <form action="{{route('categorias.index')}}" method="post">
+              <h3>Crear Colores</h3>
+                <form action="{{route('colores.index')}}" method="post">
                   @csrf
-                  <label for="nombre">Ingrese nombre de la Categoria</label>
-                  <input type="text" name="NombreCategoria" id="nombre" class="form-control mb-3" required>
+                  <label for="nombre">Ingrese el color</label>
+                  <input type="color" name="nombreColor" id="nombre" class="form-control mb-3" required>
                   <button type="submit" class="btn btn-dark">Guardar</button>
+
                 </form>
             </div>
                 
@@ -65,26 +68,33 @@
             <div class="col-8">
                 <div class="mb-3">
                 <table class="table table-sm">
-                  <h3>Tabla categorias</h3>
+                  <h3>Tabla Tallas</h3>
                   <thead class="thead-dark">
                     <tr>
                       <th>Nombre</th>
+                      <th>Color</th>
         
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach($categorias as $categoria)
+                    @foreach($colors as $color)
                       <tr>
-                        <td>{{$categoria->nombre}}</td>
+                        <td>{{$color->nombre}}</td>
+
+                        <td>
+                        <button class="btnColor" style="background-color: {{$color->nombre}};  width: 25px; height: 25px; border: none;" ></button>
+                        </td>
+
                         <td>
                           <th>
-                            <a href="{{route ('categorias.edit', $categoria->id)}}" class="btn btn-dark" id="liveAlertBtn">Editar</a>
+                            <a href="{{route ('colores.edit', $color->id)}}" class="btn btn-dark" id="liveAlertBtn">Editar</a>
                           </th>
                           <th>
-                          <form action="{{route('categorias.destroy', $categoria->id)}}" method="post">
+                          <form action="{{route('colores.destroy', $color->id)}}" method="post">
                               @csrf
                               @method('delete')
                               <button type='submit' class="btn btn-dark">Eliminar</button>
+                            </form>
                           </th>
                               
 
@@ -98,8 +108,8 @@
 
       </div>
 
-
     
+
 
       <div class="container">
         <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">

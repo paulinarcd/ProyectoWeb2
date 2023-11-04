@@ -30,6 +30,19 @@ Route::put('/categorias/{id}',[CategoriasController::class, 'update'])->name('ca
 Route::get('/categorias/{id}',[CategoriasController::class, 'edit'])->name('categorias.edit');
 
 
+Route::get('/tallas',[TallasController::class,'index'])->name('tallas.index');
+Route::post('/tallas',[TallasController::class, 'store'])->name('tallas.store');
+Route::delete('/tallas/{id}',[TallasController::class, 'destroy'])->name('tallas.destroy');
+Route::put('/tallas/{id}',[TallasController::class, 'update'])->name('tallas.update');
+Route::get('/tallas/{id}',[TallasController::class, 'edit'])->name('tallas.edit');
+
+
+Route::get('/colores',[ColorsController::class,'index'])->name('colores.index');
+Route::post('/colores',[ColorsController::class, 'store'])->name('colores.store');
+Route::delete('/colores/{id}',[ColorsController::class, 'destroy'])->name('colores.destroy');
+Route::put('/colores/{id}',[ColorsController::class, 'update'])->name('colores.update');
+Route::get('/colores/{id}',[ColorsController::class, 'edit'])->name('colores.edit');
+
 
 
 Route::get('/', function () {

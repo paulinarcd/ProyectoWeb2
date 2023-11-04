@@ -6,7 +6,8 @@
     <title>JOPS STORE</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="stylePersonalizar.css">
-</head>
+  </head>
+  
   <body>
 
 
@@ -42,55 +43,66 @@
       </div>
     </header>
 
+
+
     <div class="container text-center">
-        <div class="row">
-            <div class="col">
-                <div class="mb-3">
-                    <h1>Crear Categorias</h1>
-                    <form action="{{route('categorias.index')}}" method="post">
-                        @csrf
-                        <label for="nombre">Ingrese nombre de la Categoria</label>
-                        <input type="text" name="NombreCategoria" id="nombre" class="form-control mb-3" required>
-                        <button type="submit" class="btn btn-success">Guardar</button>
-                    </form>
-                </div>
+      <div class="row">
+        <div class="col-4">
+            <div class="mb-3">
+              <h3>Crear Tallas</h3>
+                <form action="{{route('tallas.index')}}" method="post">
+                  @csrf
+                  <label for="nombre">Ingrese nombre de la Categoria</label>
+                  <input type="text" name="nombreTalla" id="nombre" class="form-control mb-3" required>
+                  <button type="submit" class="btn btn-dark">Guardar</button>
+                </form>
+            </div>
                 
                 <script>
                     var nombre= document.getElementById('nombre').value;
                 </script>
-            </div>
+        </div>
 
 
-            <div class="col">
+            <div class="col-8">
                 <div class="mb-3">
                 <table class="table table-sm">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Nombre</th>
-                    <th>Opciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($categorias as $categoria)
-                <tr>
-                    <td>{{$categoria->nombre}}</td>
-                    <td>
-                        <a href="{{route ('categorias.index', $categoria->id)}}" class="btn btn-warning">Editar</a>
-                        <form action="{{route('categorias.destroy', $categoria->id)}}" method="post">
-                            @csrf
-                            @method('delete')
-                            <button type='submit' class="btn btn-danger">Eliminar</button>
-                        </form>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+                  <h3>Tabla Tallas</h3>
+                  <thead class="thead-dark">
+                    <tr>
+                      <th>Nombre</th>
+        
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach($tallas as $talla)
+                      <tr>
+                        <td>{{$talla->nombre}}</td>
+                        <td>
+                          <th>
+                            <a href="{{route ('tallas.edit', $talla->id)}}" class="btn btn-dark" id="liveAlertBtn">Editar</a>
+                          </th>
+                          <th>
+                          <form action="{{route('tallas.destroy', $talla->id)}}" method="post">
+                              @csrf
+                              @method('delete')
+                              <button type='submit' class="btn btn-dark">Eliminar</button>
+                            </form>
+                          </th>
+                              
+
+                        </td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+                </table>
                
           </div>
 
-        </div>
       </div>
+
+    
+
 
       <div class="container">
         <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
@@ -127,3 +139,8 @@
           </div>
         </footer>
       </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
+

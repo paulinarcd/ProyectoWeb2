@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Producto;
+use App\Models\Talla;
+use App\Models\Colors;
 
 use Illuminate\Http\Request;
 
@@ -11,7 +14,11 @@ class Producto_colortallasController extends Controller
      */
     public function index()
     {
-        //
+        $prodtc= Producto_ColorTalla::all();
+        $productos = Producto::all();
+        $tallas = Talla::all();
+        $colors = Colors::all();
+        return view("",compact("prodtc, productos, tallas, colors"));
     }
 
     /**
@@ -27,7 +34,13 @@ class Producto_colortallasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $prodtc = new Producto_ColorTalla();
+        $prodtc->id_producto=$request->producto;
+        $prodtc->id_talla=$request->talla;
+        $prodtc->id_color=$request->color;
+        $prodtc->save();
+        return redirect()->route("productoTC.index");
+
     }
 
     /**
@@ -43,7 +56,8 @@ class Producto_colortallasController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $prodtc = Producto_ColorTalla::find($id);
+        return view("",compact("prodtc"));
     }
 
     /**
@@ -51,7 +65,12 @@ class Producto_colortallasController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $prodtc = Producto_ColorTalla::find($id);
+        $prodtc->id_producto=$request->producto;
+        $prodtc->id_talla=$request->talla;
+        $prodtc->id_color=$request->color;
+        $prodtc->save();
+        return redirect()->route("productoTC.index");
     }
 
     /**
@@ -59,6 +78,8 @@ class Producto_colortallasController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $prodtc = Producto_ColorTalla::find($id);
+        $prodtc->delete();
+        return redirect()->route("productoTC.index");
     }
 }

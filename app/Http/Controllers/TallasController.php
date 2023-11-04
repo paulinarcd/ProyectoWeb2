@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Talla;
+
 
 class TallasController extends Controller
 {
@@ -11,7 +13,8 @@ class TallasController extends Controller
      */
     public function index()
     {
-        //
+        $tallas = Talla::all();
+        return view("tallas.gestion_tallas", compact("tallas"));
     }
 
     /**
@@ -27,7 +30,10 @@ class TallasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tallas = new Talla();
+        $tallas->nombre=$request->nombreTalla;
+        $tallas->save();
+        return redirect()->route("tallas.index");
     }
 
     /**
@@ -43,7 +49,8 @@ class TallasController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $tallas = Talla::find($id);
+        return view("tallas.editar_tallas", compact("tallas"));
     }
 
     /**
@@ -51,7 +58,11 @@ class TallasController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $tallas = Talla::find($id);
+        $tallas->nombre=$request->nombreTalla;
+        $tallas->save();
+        return redirect()->route("tallas.index");
+
     }
 
     /**
@@ -59,6 +70,8 @@ class TallasController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $tallas = Talla::find($id);
+        $tallas->delete();
+        return redirect()->route("tallas.index");
     }
 }

@@ -54,6 +54,11 @@
                   @csrf
                   <label for="nombre">Ingrese el color</label>
                   <input type="color" name="nombreColor" id="nombre" class="form-control mb-3" required>
+                  @error('nombreColor')
+                        <br>
+                        <span>*{{$message}}</span>
+                        <br>
+                  @enderror
                   <button type="submit" class="btn btn-dark">Guardar</button>
 
                 </form>

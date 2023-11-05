@@ -50,6 +50,13 @@
                 @method('PUT')
                 <label for="nombre">Ingrese la talla</label>
                 <input type="text" name="nombreTalla" id="nombre" class="form-control mb-3" required value="{{ $tallas->nombre}}">
+
+                  @error('nombreTalla')
+                        <br>
+                        <span>*{{$message}}</span>
+                        <br>
+                  @enderror
+                  
                 <button type="submit" class="btn btn-dark">Guardar</button>
             </form>
         

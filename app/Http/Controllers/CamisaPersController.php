@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Talla;
 use App\Models\Colors;
 use App\Models\User;
+use App\Models\CamisaPers;
 
 use Illuminate\Http\Request;
 
@@ -34,6 +35,16 @@ class CamisapersController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+
+            'precio'=> 'required', 
+            'imagen'=> 'required', 
+            'id_talla'=> 'required', 
+            'id_color'=> 'required', 
+
+        ]); 
+
+
         $camiapers = new CamisaPers();
         $camiapers->precio=$request->precio;
         $camiapers->imagen=$request->precio;
@@ -66,12 +77,22 @@ class CamisapersController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
+        $request->validate([
+
+            'precio'=> 'required', 
+            'imagen'=> 'required', 
+            'id_talla'=> 'required', 
+            'id_color'=> 'required', 
+
+        ]); 
+        
         $camisapers = CamisaPers::find($id);
-        $camiapers->precio=$request->precio;
-        $camiapers->imagen=$request->precio;
-        $camiapers->id_talla=$request->precio;
-        $camiapers->id_color=$request->precio;
-        $camiapers->save();
+        $camisapers->precio=$request->precio;
+        $camisapers->imagen=$request->precio;
+        $camisapers->id_talla=$request->precio;
+        $camisapers->id_color=$request->precio;
+        $camisapers->save();
         return redirect()->route("");
 
     }
@@ -82,7 +103,7 @@ class CamisapersController extends Controller
     public function destroy(string $id)
     {
         $camisapers = CamisaPers::find($id);
-        $camiapers->delete();
+        $camisapers->delete();
         return redirect()->route("");
     }
 }

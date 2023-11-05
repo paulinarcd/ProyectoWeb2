@@ -33,6 +33,12 @@ class ComprasController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'fecha'=> 'required', 
+            'cantidad'=> 'required', 
+            'idProducto'=> 'required', 
+        ]); 
+        
         $compras = new Compra();
         $compras->fecha=$request->fecha;
         $compras->cantidad=$request->cantidad;
@@ -64,6 +70,12 @@ class ComprasController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $request->validate([
+            'fecha'=> 'required', 
+            'cantidad'=> 'required', 
+            'idProducto'=> 'required', 
+        ]); 
+
         $compras = Compra::find($id);
         $compras->fecha=$request->fecha;
         $compras->cantidad=$request->cantidad;

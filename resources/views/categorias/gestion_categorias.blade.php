@@ -52,6 +52,13 @@
                   @csrf
                   <label for="nombre">Ingrese nombre de la Categoria</label>
                   <input type="text" name="NombreCategoria" id="nombre" class="form-control mb-3" required>
+
+                  @error('NombreCategoria')
+                        <br>
+                        <span>*{{$message}}</span>
+                        <br>
+                  @enderror
+
                   <button type="submit" class="btn btn-dark">Guardar</button>
                 </form>
             </div>

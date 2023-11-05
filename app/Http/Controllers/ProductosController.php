@@ -33,9 +33,19 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $request->validate([
+            'nombreProducto'=> 'required', 
+            'cantidad'=> 'required', 
+            'precio'=> 'required', 
+            'genero'=> 'required', 
+            'imagen'=> 'required', 
+            'idCategoria'=> 'required', 
+            'idUser'=> 'required', 
+        ]); 
         $producto = new Producto();
         $producto->nombre = $request->nombreProducto;
-        $producto->cantidad = $request->catidad;
+        $producto->cantidad = $request->cantidad;
         $producto->precio = $request->precio;
         $producto->genero = $request->genero;
         $producto->imagen = $request->imagen;
@@ -59,7 +69,7 @@ class ProductosController extends Controller
     public function edit(string $id)
     {
         $producto = Producto::find($id);
-        return view("books.editar_libros", compact('producto'));
+        return view("", compact('producto'));
 
     }
 
@@ -68,6 +78,16 @@ class ProductosController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $request->validate([
+            'nombreProducto'=> 'required', 
+            'cantidad'=> 'required', 
+            'precio'=> 'required', 
+            'genero'=> 'required', 
+            'imagen'=> 'required', 
+            'idCategoria'=> 'required', 
+            'idUser'=> 'required', 
+        ]); 
+
         $producto = Producto::find($id);        
         $producto->nombre = $request->nombreProducto;
         $producto->cantidad = $request->catidad;
@@ -77,7 +97,7 @@ class ProductosController extends Controller
         $producto->id_categoria = $request->idCategoria;
         $producto->id_user = $request->idUser;
         $producto->save();
-        return redirect()->route('books.index');
+        return redirect()->route('.index');
     }
 
     /**
@@ -87,6 +107,6 @@ class ProductosController extends Controller
     {
         $producto = Producto::find($id);
         $producto->delete();
-        return redirect()->route('books.index');
+        return redirect()->route('.index');
     }
 }

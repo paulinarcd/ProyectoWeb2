@@ -29,6 +29,11 @@ class ColorsController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'nombreColor'=> 'required', 
+        ]); 
+
         $colors = new Colors();
         $colors->nombre=$request->nombreColor;
         $colors->save();
@@ -57,6 +62,10 @@ class ColorsController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $request->validate([
+            'nombreColor'=> 'required', 
+        ]); 
+        
         $colors = Colors::find($id);
         $colors->nombre=$request->nombreColor;
         $colors->save();

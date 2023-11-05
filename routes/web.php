@@ -9,6 +9,8 @@ use App\Http\Controllers\Historial_comprasController;
 use App\Http\Controllers\Producto_colortallasController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\TallasController;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Producto;
 use App\Models\Talla;
 use App\Models\Colors;
+use App\Models\Producto_ColorTalla;
 
 use Illuminate\Http\Request;
 
@@ -34,6 +35,12 @@ class Producto_colortallasController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'producto'=> 'required', 
+            'talla'=> 'required', 
+            'color'=> 'required', 
+        ]); 
         $prodtc = new Producto_ColorTalla();
         $prodtc->id_producto=$request->producto;
         $prodtc->id_talla=$request->talla;
@@ -65,6 +72,12 @@ class Producto_colortallasController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        
+        $request->validate([
+            'producto'=> 'required', 
+            'talla'=> 'required', 
+            'color'=> 'required', 
+        ]); 
         $prodtc = Producto_ColorTalla::find($id);
         $prodtc->id_producto=$request->producto;
         $prodtc->id_talla=$request->talla;

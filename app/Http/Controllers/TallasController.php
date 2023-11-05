@@ -30,6 +30,10 @@ class TallasController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombreTalla'=> 'required', 
+        ]); 
+
         $tallas = new Talla();
         $tallas->nombre=$request->nombreTalla;
         $tallas->save();
@@ -58,6 +62,10 @@ class TallasController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $request->validate([
+            'nombreTalla'=> 'required', 
+        ]); 
+        
         $tallas = Talla::find($id);
         $tallas->nombre=$request->nombreTalla;
         $tallas->save();

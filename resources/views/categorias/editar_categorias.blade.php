@@ -50,6 +50,11 @@
                 @method('PUT')
                 <label for="nombre">Ingrese el nombre de la categoria</label>
                 <input type="text" name="nombreCategoria" id="nombre" class="form-control mb-3" required value="{{ $categoria->nombre}}">
+                  @error('NombreCategoria')
+                        <br>
+                        <span>*{{$message}}</span>
+                        <br>
+                  @enderror
                 <button type="submit" class="btn btn-dark">Guardar</button>
             </form>
         

@@ -48,7 +48,7 @@
             <form action="{{route('colores.update', $colors->id)}}" method="post">
                 @csrf
                 @method('PUT')
-                <label for="nombre">Ingrese la talla</label>
+                <label for="nombre">Ingrese el Color</label>
                 <input type="color" name="nombreColor" id="nombre" class="form-control mb-3" required value="{{ $colors->nombre}}">
                   @error('nombreColor')
                         <br>

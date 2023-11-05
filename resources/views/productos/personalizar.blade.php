@@ -19,19 +19,19 @@
           </a>
   
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="index.html" class="nav-link px-2 text-secondary">Inicio</a></li>
-            <li><a href="visual.html" class="nav-link px-2 text-white">Hombre</a></li>
-            <li><a href="visual.html" class="nav-link px-2 text-white">Mujer</a></li>
-            <li><a href="visual.html" class="nav-link px-2 text-white">Tiendas</a></li>
+            <li><a href="/" class="nav-link px-2 text-secondary">Inicio</a></li>
+            <li><a href="/" class="nav-link px-2 text-white">Hombre</a></li>
+            <li><a href="/" class="nav-link px-2 text-white">Mujer</a></li>
+            <li><a href="/" class="nav-link px-2 text-white">Tiendas</a></li>
           </ul>
 
   
           <div class="text-end">
             <button type="button" class="btn btn-outline-light me-2">
-              <a class="link" href="InicioSesion.html">Iniciar Sesion</a>
+              <a class="link" href="home">Iniciar Sesion</a>
             </button>
             <button type="button" class="btn btn-outline-light me-3">
-              <a  class="link" href="registro.html">Registrarse</a>
+              <a  class="link" href="home">Registrarse</a>
             </button>
             <button type="button" class="btn btn-light"> 
               <img src="images/carrito-de-compras.png" alt="" height ="20px" width="20px">
